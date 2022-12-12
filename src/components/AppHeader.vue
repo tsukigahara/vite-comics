@@ -1,48 +1,83 @@
 <script>
 import 'bootstrap';
 export default {
+    data() {
+        return {
+            navlist: [
+                {
+                    name: "CHARACTER",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "COMICS",
+                    status: true,
+                    url: '',
+                },
+                {
+                    name: "MOVIES",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "TV",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "GAMES",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "COLLECTIBLES",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "VIDEOS",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "FANS",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "NEWS",
+                    status: false,
+                    url: '',
+                },
+                {
+                    name: "SHOP",
+                    status: false,
+                    url: '',
+                },
 
+            ]
+        }
+    },
 }
 </script>
 
 <template>
 
     <header>
-        <a href="">
-            <img src="../assets/dc-logo.png" alt="">
-        </a>
-        <ul>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-            <li>
-                <a href="">lorem</a>
-            </li>
-        </ul>
+        <div class="container">
+            <div>
+                <a href="">
+                    <img src="../assets/dc-logo.png" alt="">
+                </a>
+                <nav class="d-none d-lg-block">
+                    <ul>
+                        <li v-for="(item, index) in navlist" :key="index" :class="{ active: item.status }">
+                            <a :href="item.url">{{ item.name }}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
 
     </header>
 
@@ -53,13 +88,21 @@ export default {
 @use '../styles/partials/variables' as *;
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 100px;
-    background-color: beige;
+    background-color: white;
+    font-size: $headerfont;
+    font-weight: 600;
+
+    .container {
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 100px;
+        }
+    }
 }
+
 
 a>img {
     width: 80px;
@@ -67,20 +110,34 @@ a>img {
 }
 
 ul {
-    height: 100%;
-    margin: 0 20px;
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
     list-style: none;
     display: flex;
-    gap: 0 30px;
+    flex-wrap: wrap;
+    gap: 20px;
 
     li {
-        height: 100%;
-        display: inline-block;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
 
         a {
             text-decoration: none;
+            color: $black;
         }
 
+        &.active,
+        &:hover {
+            border-bottom: 4px solid $dc_blue;
+
+            & a {
+                color: $dc_blue;
+            }
+        }
     }
 }
 </style>
