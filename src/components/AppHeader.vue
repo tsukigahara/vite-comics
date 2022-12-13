@@ -1,6 +1,7 @@
 <script>
 export default {
     props: {
+        // set props
         links: Array,
     },
     data() {
@@ -11,15 +12,20 @@ export default {
 </script>
 
 <template>
-
+    <!-- header -->
     <header>
         <div class="container">
+
+            <!-- flex wrapper -->
             <div>
+                <!-- logo -->
                 <a href="">
                     <img src="../assets/dc-logo.png" alt="">
                 </a>
+                <!-- nav -->
                 <nav class="d-none d-lg-block">
                     <ul>
+                        <!-- vfor using props -->
                         <li v-for="(item, index) in links[0].subitem" :key="index" :class="{ active: item.status }">
                             <a :href="item.url">{{ item.name }}</a>
                         </li>
@@ -27,12 +33,12 @@ export default {
                 </nav>
             </div>
         </div>
-
     </header>
 
 </template>
 
 <style lang="scss" scoped>
+// import scss
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
 
@@ -42,6 +48,8 @@ header {
     font-weight: 600;
 
     .container {
+
+        // flex wrapper
         div {
             display: flex;
             align-items: center;
@@ -52,12 +60,13 @@ header {
     }
 }
 
-
+// logo
 a>img {
     width: 80px;
     height: auto;
 }
 
+// nav list
 ul {
     align-self: stretch;
     margin: 0;
