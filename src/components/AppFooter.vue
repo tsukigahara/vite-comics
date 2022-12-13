@@ -1,149 +1,10 @@
 <script>
-import 'bootstrap';
 export default {
-
+    props: {
+        links: Array,
+    },
     data() {
         return {
-            navlist: [
-                {
-                    name: 'DC COMICS',
-                    subitem: [
-                        {
-                            name: "CHARACTER",
-                            url: '',
-                        },
-                        {
-                            name: "COMICS",
-                            url: '',
-                        },
-                        {
-                            name: "MOVIES",
-                            url: '',
-                        },
-                        {
-                            name: "TV",
-                            url: '',
-                        },
-                        {
-                            name: "GAMES",
-                            url: '',
-                        },
-                        {
-                            name: "COLLECTIBLES",
-                            url: '',
-                        },
-                        {
-                            name: "VIDEOS",
-                            url: '',
-                        },
-                        {
-                            name: "FANS",
-                            url: '',
-                        },
-                        {
-                            name: "NEWS",
-                            url: '',
-                        },
-                        {
-                            name: "SHOP",
-                            url: '',
-                        },
-
-                    ]
-                },
-                {
-                    name: 'SHOP',
-                    subitem: [
-                        {
-                            name: 'Shop DC',
-                            url: ''
-                        },
-                        {
-                            name: 'Shop DC Collectibles',
-                            url: ''
-                        },
-                    ]
-                },
-                {
-                    name: 'DC',
-                    subitem: [
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                    ]
-                },
-                {
-                    name: 'SITES',
-                    subitem: [
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                        {
-                            name: 'lorem',
-                            url: ''
-                        },
-                    ]
-                }
-            ],
-            index: 0,
         }
     },
 
@@ -155,8 +16,9 @@ export default {
         <img src="../assets/dc-logo-bg.png" alt="">
         <div class="container">
             <nav>
-                <div>
-                    <ul v-for="(item, index) in navlist" :key="index">
+                <div v-for="(item, index) in links" :key="index">
+                    <h3>{{ item.name }}</h3>
+                    <ul>
                         <li v-for="(item, index) in item.subitem" :key="index" :class="{ active: item.status }">
                             <a :href="item.url">{{ item.name }}</a>
                         </li>
@@ -176,10 +38,18 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+    position: relative;
 
     img {
-        z-index: 0;
-        float: right;
+        right: 0;
+        top: 0;
+        translate: 0% -15%;
+        position: absolute;
+    }
+
+    nav {
+        display: flex;
+        width: 100%;
     }
 }
 </style>

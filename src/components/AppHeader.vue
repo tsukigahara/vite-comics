@@ -1,61 +1,10 @@
 <script>
-import 'bootstrap';
 export default {
+    props: {
+        links: Array,
+    },
     data() {
         return {
-            navlist: [
-                {
-                    name: "CHARACTER",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "COMICS",
-                    status: true,
-                    url: '',
-                },
-                {
-                    name: "MOVIES",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "TV",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "GAMES",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "COLLECTIBLES",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "VIDEOS",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "FANS",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "NEWS",
-                    status: false,
-                    url: '',
-                },
-                {
-                    name: "SHOP",
-                    status: false,
-                    url: '',
-                },
-
-            ]
         }
     },
 }
@@ -71,7 +20,7 @@ export default {
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul>
-                        <li v-for="(item, index) in navlist" :key="index" :class="{ active: item.status }">
+                        <li v-for="(item, index) in links" :key="index" :class="{ active: item.status }">
                             <a :href="item.url">{{ item.name }}</a>
                         </li>
                     </ul>
