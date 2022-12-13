@@ -20,7 +20,7 @@ export default {
                 </a>
                 <nav class="d-none d-lg-block">
                     <ul>
-                        <li v-for="(item, index) in links" :key="index" :class="{ active: item.status }">
+                        <li v-for="(item, index) in links[0].subitem" :key="index" :class="{ active: item.status }">
                             <a :href="item.url">{{ item.name }}</a>
                         </li>
                     </ul>

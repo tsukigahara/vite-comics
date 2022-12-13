@@ -1,16 +1,16 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
+import AppCards from './components/AppCards.vue'
+
 import linkInfo from './assets/dc-comics_links.json'
 import cardInfo from './assets/dc-comics.json'
 </script>
 
 <template>
-  <AppHeader :links="linkInfo[0].subitem" />
+  <AppHeader :links="linkInfo" />
   <main>
-    <div class="content">
-      content here
-    </div>
+    <AppCards :links="cardInfo" />
   </main>
   <AppFooter :links="linkInfo" />
 </template>
